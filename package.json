@@ -2,7 +2,7 @@
   "name": "rest-api-express",
   "version": "0.1.0",
   "description": "REST API using NodeJS and Express",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
