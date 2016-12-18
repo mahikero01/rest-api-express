@@ -6,12 +6,7 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 app.use(function(req, res, next){
-    req.myMessage = "Hello, middle #2";
-    next();
-});
-
-app.use(function(req, res, next){
-    console.log(req.myMessage);
+    console.log("The leave on the trees are", req.query.color);
     next();
 });
 
