@@ -1,0 +1,22 @@
+{
+  "name": "rest-api-express",
+  "version": "0.1.0",
+  "description": "REST API using NodeJS and Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahikero01/rest-api-express.git"
+  },
+  "author": "Nick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mahikero01/rest-api-express/issues"
+  },
+  "homepage": "https://github.com/mahikero01/rest-api-express#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
