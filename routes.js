@@ -6,6 +6,7 @@ var router = express.Router();
 
 //GET /Questions
 router.get("/", function(req, res) {
+    var o = obj.prop;
     res.json({response: "You sent a GET request"});
 });
 
