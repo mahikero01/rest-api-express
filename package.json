@@ -18,6 +18,7 @@
   "homepage": "https://github.com/mahikero01/rest-api-express#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
   }
 }
