@@ -19,7 +19,7 @@ var AnswerSchema = new Schema({
 });
 
 AnswerSchema.method('update', function(updates, callback){
-    object.assign(this, updates, {updatedAt: new Date()});
+    Object.assign(this, updates, {updatedAt: new Date()});
     this.parent().save(callback);
 });
 
