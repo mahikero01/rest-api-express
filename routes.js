@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var Questions = require("./models").Question;
+var Question = require("./models").Question;
 
 var router = express.Router();
 
@@ -19,8 +19,8 @@ router.param("qID", function(req, res, next, id){
 })
 
 router.param("aID", function(req, res, next, id){
-    req.answer = req.question.answer.id(id);
-    if(!req) {
+    req.answer = req.question.answers.id(id);
+    if(!req.answer) {
         err = new Error("Not Found");
         err.status = 404;
         return next(err);

@@ -18,12 +18,12 @@ var AnswerSchema = new Schema({
     votes: {type: Number, default: 0},
 });
 
-AnswerSchema.methods('update', function(updates, callback){
+AnswerSchema.method('update', function(updates, callback){
     object.assign(this, updates, {updatedAt: new Date()});
     this.parent().save(callback);
 });
 
-AnswerSchema.methods('vote', function(vote, callback){
+AnswerSchema.method('vote', function(vote, callback){
     if (vote === "up") {
         this.votes += 1;
     } else {
@@ -45,4 +45,4 @@ QuestionSchema.pre('save', function(next){
 
 var Question = mongoose.model('Question', QuestionSchema );
 
-model.exports.Question = Question;
+module.exports.Question = Question;
