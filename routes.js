@@ -67,7 +67,7 @@ router.post("/:qID/answers", function(req, res, next) {
 });
 
 //PUT /questions/:id/answers/:id
-router.put("/:qID/answers/:aID", function(req, res, next) {
+router.put("/:qID/answers/:aID", function(req, res) {
     req.answer.update(req.body, function(err, result){
         if(err) return next(err);
         res.json(result);
