@@ -4,6 +4,13 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
+var sortAnswers = function(a, b){
+  if (a.votes === b.votes) {
+      return b.updatedAt - a.updatedAt;
+  }
+  return b.votes - a.votes;  
+};
+
 var AnswerSchema = new Schema({
     text: String,
     createdAt: {type: Date, default: Date.now},
@@ -11,10 +18,29 @@ var AnswerSchema = new Schema({
     votes: {type: Number, default: 0},
 });
 
+AnswerSchema.methods('update', function(updates, callback){
+    object.assign(this, updates, {updatedAt: new Date()});
+    this.parent().save(callback);
+});
+
+AnswerSchema.methods('vote', function(vote, callback){
+    if (vote === "up") {
+        this.votes += 1;
+    } else {
+        this.votes -= 1;
+    }
+    this.parent().save(callback);
+});
+
 var QuestionSchema = new Schema({
     text: String,
     createdAt: {type: Date, default: Date.now},
     answers: [AnswerSchema]
+});
+
+QuestionSchema.pre('save', function(next){
+    this.answers.sort(sortAnswers);
+    next();
 });
 
 var Question = mongoose.model('Question', QuestionSchema );
